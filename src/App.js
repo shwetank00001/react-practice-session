@@ -1,12 +1,13 @@
-import Things from "./components/Things";
+// import Things from "./components/Things";
 import "./App.css";
+import Theme from "./components/Theme";
 
 function App() {
-  return (
-      <div className="App">
-          <Things />
-      </div>
-  );
+    return (
+        <div className="App">
+            <Theme />
+        </div>
+    );
 }
 
 export default App;

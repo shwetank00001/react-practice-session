@@ -11,7 +11,7 @@ const Things = () => {
         });
     }
     return (
-        <div >
+        <div>
             <h3>List of things are</h3>
             <button onClick={addThing}>Add a thing</button>
             {data}
