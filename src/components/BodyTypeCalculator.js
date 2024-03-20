@@ -12,30 +12,32 @@ function BodyTypeCalculator() {
         let bodyFatPercentageValue;
 
         if (unitSystem === "us") {
-            // Convert measurements to inches if using US system
-            const waistInInch = parseFloat(waist);
-            const hipInInch = parseFloat(hip);
-            const heightInInch = parseFloat(height);
+            const waistInCm = parseFloat(waist) * 2.54;
+            const hipInCm = parseFloat(hip) * 2.54;
+            const heightInCm = parseFloat(height) * 2.54;
 
-            // Calculate body fat percentage using the U.S. Navy method
-            const bodyFatWeight =
-                (waistInInch + hipInInch - heightInInch) * 0.5;
-            bodyFatPercentageValue = (bodyFatWeight * 100) / heightInInch;
+            bodyFatPercentageValue = (
+                495 /
+                    (1.0324 -
+                        0.19077 * Math.log10(waistInCm - hipInCm) +
+                        0.15456 * Math.log10(heightInCm)) -
+                450
+            ).toFixed(2);
         } else {
-            // Convert measurements to centimeters if using Metric system
             const waistInCm = parseFloat(waist);
             const hipInCm = parseFloat(hip);
             const heightInCm = parseFloat(height);
 
-            // Calculate body fat percentage using the U.S. Navy method
-            const waistHipRatio = waistInCm / hipInCm;
-            const bodyFatWeight =
-                0.29669 * waistInCm + 0.31979 * heightInCm - 28.342;
-            bodyFatPercentageValue =
-                100 - 98.42 * Math.log10(waistHipRatio) - bodyFatWeight;
+            bodyFatPercentageValue = (
+                495 /
+                    (1.0324 -
+                        0.19077 * Math.log10(waistInCm - hipInCm) +
+                        0.15456 * Math.log10(heightInCm)) -
+                450
+            ).toFixed(2);
         }
 
-        return bodyFatPercentageValue.toFixed(2);
+        return bodyFatPercentageValue;
     };
 
     const determineBodyType = () => {

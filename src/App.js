@@ -1,11 +1,11 @@
 // import Things from "./components/Things";
 import "./App.css";
-import BodyTypeCalculator from "./components/BodyTypeCalculator";
+import BsaCalculator from "./components/BsaCalculator";
 
 function App() {
     return (
         <div className="App">
-            <BodyTypeCalculator />
+            <BsaCalculator />
         </div>
     );
 }
