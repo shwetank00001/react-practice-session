@@ -1,11 +1,10 @@
-// import Things from "./components/Things";
-import "./App.css";
-import BsaCalculator from "./components/BsaCalculator";
+import Reactfacts from "./facts/Reactfacts";
+
 
 function App() {
     return (
         <div className="App">
-            <BsaCalculator />
+            <Reactfacts />
         </div>
     );
 }
